@@ -90,7 +90,7 @@ impl CreateOrderParams {
     /// # Examples
     ///
     /// ```
-    /// use razorpay_sdk::resources::CreateOrderParams;
+    /// use razorpay_api::resources::CreateOrderParams;
     ///
     /// // ₹500.00 — amounts are in paise, never rupees.
     /// let params = CreateOrderParams::new(50_000, "INR");
@@ -149,8 +149,8 @@ impl<'a> OrdersClient<'a> {
     /// # Examples
     ///
     /// ```no_run
-    /// # use razorpay_sdk::{RazorpayClient, RazorpayError};
-    /// # use razorpay_sdk::resources::CreateOrderParams;
+    /// # use razorpay_api::{RazorpayClient, RazorpayError};
+    /// # use razorpay_api::resources::CreateOrderParams;
     /// # async fn demo() -> Result<(), RazorpayError> {
     /// let client = RazorpayClient::new("key_id".into(), "key_secret".into());
     /// let order = client

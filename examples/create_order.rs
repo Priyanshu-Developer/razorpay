@@ -8,8 +8,8 @@
 
 use std::collections::HashMap;
 
-use razorpay_sdk::resources::CreateOrderParams;
-use razorpay_sdk::{ListOptions, RazorpayClient, RazorpayError};
+use razorpay_api::resources::CreateOrderParams;
+use razorpay_api::{ListOptions, RazorpayClient, RazorpayError};
 
 #[tokio::main]
 async fn main() -> Result<(), RazorpayError> {

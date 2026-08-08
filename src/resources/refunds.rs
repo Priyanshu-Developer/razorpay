@@ -98,7 +98,7 @@ impl CreateRefundParams {
     /// Refund the payment's entire remaining amount.
     ///
     /// ```
-    /// use razorpay_sdk::resources::CreateRefundParams;
+    /// use razorpay_api::resources::CreateRefundParams;
     /// assert!(CreateRefundParams::full().amount.is_none());
     /// ```
     pub fn full() -> Self {
@@ -108,7 +108,7 @@ impl CreateRefundParams {
     /// Refund only `amount`, in the smallest currency unit.
     ///
     /// ```
-    /// use razorpay_sdk::resources::CreateRefundParams;
+    /// use razorpay_api::resources::CreateRefundParams;
     /// assert_eq!(CreateRefundParams::partial(10_000).amount, Some(10_000));
     /// ```
     pub fn partial(amount: i64) -> Self {

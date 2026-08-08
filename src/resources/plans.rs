@@ -84,7 +84,7 @@ impl CreatePlanParams {
     /// # Examples
     ///
     /// ```
-    /// use razorpay_sdk::resources::{CreatePlanParams, PlanPeriod};
+    /// use razorpay_api::resources::{CreatePlanParams, PlanPeriod};
     ///
     /// // ₹499 every month.
     /// let monthly = CreatePlanParams::new(PlanPeriod::Monthly, 1, "Pro", 49_900, "INR");

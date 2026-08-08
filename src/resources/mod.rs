@@ -5,7 +5,7 @@
 //! get them from the accessors on [`RazorpayClient`](crate::RazorpayClient):
 //!
 //! ```no_run
-//! # use razorpay_sdk::{RazorpayClient, RazorpayError, ListOptions};
+//! # use razorpay_api::{RazorpayClient, RazorpayError, ListOptions};
 //! # async fn demo(client: RazorpayClient) -> Result<(), RazorpayError> {
 //! let order = client.orders().fetch("order_123").await?;
 //! let payments = client.payments().all(ListOptions::default()).await?;
@@ -27,7 +27,7 @@ pub mod subscriptions;
 pub mod tokens;
 pub mod webhooks;
 
-// Flat re-exports so callers can `use razorpay_sdk::resources::Order` without
+// Flat re-exports so callers can `use razorpay_api::resources::Order` without
 // knowing which submodule it lives in.
 pub use cards::{Card, CardsClient};
 pub use common::{EntityMode, Notes, NotesUpdate, PaymentMethod};

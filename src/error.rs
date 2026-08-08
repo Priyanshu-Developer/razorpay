@@ -69,7 +69,7 @@ impl RazorpayError {
     /// # Examples
     ///
     /// ```
-    /// # use razorpay_sdk::RazorpayError;
+    /// # use razorpay_api::RazorpayError;
     /// # fn demo(err: RazorpayError) {
     /// if err.is_retryable() {
     ///     // back off and try again
@@ -107,7 +107,7 @@ impl RazorpayError {
     /// # Examples
     ///
     /// ```
-    /// # use razorpay_sdk::RazorpayError;
+    /// # use razorpay_api::RazorpayError;
     /// # fn demo(err: RazorpayError) {
     /// // Match on the code, never on the human-readable description.
     /// if err.code() == Some("BAD_REQUEST_ERROR") {

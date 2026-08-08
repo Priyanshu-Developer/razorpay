@@ -6,8 +6,8 @@
 //! cargo run --example subscription
 //! ```
 
-use razorpay_sdk::resources::{CreatePlanParams, CreateSubscriptionParams, CustomerParams, PlanPeriod};
-use razorpay_sdk::{RazorpayClient, RazorpayError};
+use razorpay_api::resources::{CreatePlanParams, CreateSubscriptionParams, CustomerParams, PlanPeriod};
+use razorpay_api::{RazorpayClient, RazorpayError};
 
 #[tokio::main]
 async fn main() -> Result<(), RazorpayError> {

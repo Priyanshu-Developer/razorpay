@@ -946,8 +946,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "razorpay-sdk"
-version = "0.1.1"
+name = "razorpay-api"
+version = "0.1.0"
 dependencies = [
  "hex",
  "hmac",

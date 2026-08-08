@@ -8,7 +8,7 @@ use crate::error::{ApiErrorEnvelope, RazorpayError};
 
 const DEFAULT_BASE_URL: &str = "https://api.razorpay.com/v1/";
 const DEFAULT_TIMEOUT: Duration = Duration::from_secs(30);
-const USER_AGENT: &str = concat!("razorpay-sdk-rust/", env!("CARGO_PKG_VERSION"));
+const USER_AGENT: &str = concat!("razorpay-api-rust/", env!("CARGO_PKG_VERSION"));
 
 /// How the client authenticates.
 ///
@@ -41,7 +41,7 @@ pub enum AuthMethod {
 /// # Examples
 ///
 /// ```
-/// use razorpay_sdk::RazorpayClient;
+/// use razorpay_api::RazorpayClient;
 ///
 /// let client = RazorpayClient::new("rzp_test_key".into(), "secret".into());
 /// assert_eq!(client.base_url().as_str(), "https://api.razorpay.com/v1/");
@@ -62,7 +62,7 @@ impl RazorpayClient {
     /// # Examples
     ///
     /// ```no_run
-    /// use razorpay_sdk::RazorpayClient;
+    /// use razorpay_api::RazorpayClient;
     ///
     /// let client = RazorpayClient::new(
     ///     std::env::var("RAZORPAY_KEY_ID").unwrap(),
@@ -111,7 +111,7 @@ impl RazorpayClient {
     /// # Examples
     ///
     /// ```
-    /// # use razorpay_sdk::RazorpayClient;
+    /// # use razorpay_api::RazorpayClient;
     /// let client = RazorpayClient::new("k".into(), "s".into())
     ///     .with_base_url("http://127.0.0.1:8080/v1/".parse().unwrap());
     /// assert_eq!(client.base_url().as_str(), "http://127.0.0.1:8080/v1/");

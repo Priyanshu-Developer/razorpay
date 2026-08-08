@@ -6,8 +6,8 @@
 //! cargo run --example handle_webhook
 //! ```
 
-use razorpay_sdk::resources::WebhookEvent;
-use razorpay_sdk::signature::compute_signature;
+use razorpay_api::resources::WebhookEvent;
+use razorpay_api::signature::compute_signature;
 
 /// What a real handler looks like: raw body in, typed event out.
 ///

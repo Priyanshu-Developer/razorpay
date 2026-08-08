@@ -22,7 +22,7 @@ type HmacSha256 = Hmac<Sha256>;
 /// # Examples
 ///
 /// ```
-/// use razorpay_sdk::signature::compute_signature;
+/// use razorpay_api::signature::compute_signature;
 ///
 /// let sig = compute_signature("hello", "secret");
 /// assert_eq!(sig, "88aab3ede8d3adf94d26ab90d3bafd4a2083070c3bcce9c014ee04a443847c0b");
@@ -44,7 +44,7 @@ pub fn compute_signature(message: &str, secret: &str) -> String {
 /// # Examples
 ///
 /// ```
-/// use razorpay_sdk::signature::{compute_signature, verify_signature};
+/// use razorpay_api::signature::{compute_signature, verify_signature};
 ///
 /// let expected = compute_signature("hello", "secret");
 /// assert!(verify_signature("hello", &expected, "secret").is_ok());
@@ -90,7 +90,7 @@ pub fn verify_signature(message: &str, signature: &str, secret: &str) -> Result<
 /// # Examples
 ///
 /// ```
-/// use razorpay_sdk::signature::{compute_signature, verify_payment_signature};
+/// use razorpay_api::signature::{compute_signature, verify_payment_signature};
 ///
 /// let secret = "EnLs21M47BllR3X8PSFtjtbd";
 /// let order_id = "order_IEIaMR65cU6MI1";
@@ -132,7 +132,7 @@ pub fn verify_payment_signature(
 /// # Examples
 ///
 /// ```
-/// use razorpay_sdk::signature::{compute_signature, verify_webhook_signature};
+/// use razorpay_api::signature::{compute_signature, verify_webhook_signature};
 ///
 /// let secret = "webhook_secret";
 /// let raw_body = r#"{"event":"payment.captured","payload":{}}"#;

@@ -244,8 +244,8 @@ impl<'a> PaymentLinksClient<'a> {
     /// # Examples
     ///
     /// ```no_run
-    /// # use razorpay_sdk::{RazorpayClient, RazorpayError};
-    /// # use razorpay_sdk::resources::{CreatePaymentLinkParams, LinkCustomer};
+    /// # use razorpay_api::{RazorpayClient, RazorpayError};
+    /// # use razorpay_api::resources::{CreatePaymentLinkParams, LinkCustomer};
     /// # async fn demo(client: RazorpayClient) -> Result<(), RazorpayError> {
     /// let link = client
     ///     .payment_links()

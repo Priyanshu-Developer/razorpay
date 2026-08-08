@@ -190,7 +190,7 @@ impl<'a> PaymentsClient<'a> {
     /// # Examples
     ///
     /// ```no_run
-    /// # use razorpay_sdk::{RazorpayClient, RazorpayError};
+    /// # use razorpay_api::{RazorpayClient, RazorpayError};
     /// # async fn demo(client: RazorpayClient) -> Result<(), RazorpayError> {
     /// let payment = client.payments().fetch("pay_123").await?;
     /// if !payment.is_captured() {
@@ -228,8 +228,8 @@ impl<'a> PaymentsClient<'a> {
     /// # Examples
     ///
     /// ```no_run
-    /// # use razorpay_sdk::{RazorpayClient, RazorpayError};
-    /// # use razorpay_sdk::resources::CreateRefundParams;
+    /// # use razorpay_api::{RazorpayClient, RazorpayError};
+    /// # use razorpay_api::resources::CreateRefundParams;
     /// # async fn demo(client: RazorpayClient) -> Result<(), RazorpayError> {
     /// // Full refund.
     /// client.payments().refund("pay_123", CreateRefundParams::full()).await?;

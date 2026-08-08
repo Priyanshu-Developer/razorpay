@@ -13,7 +13,7 @@
 //! attacker-controlled. Skipping verification means anyone can POST a fabricated
 //! "payment succeeded" and receive goods for free.
 
-use razorpay_sdk::signature::{compute_signature, verify_payment_signature};
+use razorpay_api::signature::{compute_signature, verify_payment_signature};
 
 fn main() {
     // In production these come from your API key secret and the Checkout callback.

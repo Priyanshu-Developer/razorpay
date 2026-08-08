@@ -16,7 +16,7 @@ Initial release. Covers the core payment lifecycle and recurring billing.
 **Core**
 
 - `RazorpayClient` with connection pooling, a 30s default timeout, and a
-  `razorpay-sdk-rust/{version}` user agent.
+  `razorpay-api-rust/{version}` user agent.
 - `AuthMethod` supporting API key pairs (HTTP Basic) and OAuth bearer tokens.
 - `with_base_url` for pointing the client at a mock server, which is what makes the
   crate testable without network access.
@@ -77,5 +77,5 @@ Initial release. Covers the core payment lifecycle and recurring billing.
 - Automatic retries. Safe retry of writes requires idempotency keys; without them,
   retrying a timed-out `POST /orders` creates a duplicate order.
 
-[Unreleased]: https://github.com/Priyanshu-Developer/razorpay-sdk/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Priyanshu-Developer/razorpay-sdk/releases/tag/v0.1.0
+[Unreleased]: https://github.com/Priyanshu-Developer/razorpay-api/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Priyanshu-Developer/razorpay-api/releases/tag/v0.1.0

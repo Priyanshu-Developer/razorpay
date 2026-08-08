@@ -1,4 +1,4 @@
-# razorpay-sdk
+# razorpay-api
 
 An async, typed Rust client for the [Razorpay](https://razorpay.com) payments API.
 
@@ -8,18 +8,18 @@ detail.
 
 ```toml
 [dependencies]
-razorpay-sdk = "0.1"
+razorpay-api = "0.1"
 tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
 ```
 
-The package is `razorpay-sdk`; the import path is `razorpay_sdk` (Cargo converts
+The package is `razorpay-api`; the import path is `razorpay_api` (Cargo converts
 hyphens to underscores).
 
 ## Quick start
 
 ```rust
-use razorpay_sdk::{RazorpayClient, RazorpayError};
-use razorpay_sdk::resources::CreateOrderParams;
+use razorpay_api::{RazorpayClient, RazorpayError};
+use razorpay_api::resources::CreateOrderParams;
 
 #[tokio::main]
 async fn main() -> Result<(), RazorpayError> {
@@ -52,7 +52,7 @@ A complete integration is four steps, and **step 3 is not optional**:
 4. **Handle webhooks** for asynchronous updates.
 
 ```rust
-use razorpay_sdk::signature::verify_payment_signature;
+use razorpay_api::signature::verify_payment_signature;
 
 // These three arrive from the browser after Checkout completes.
 verify_payment_signature(&order_id, &payment_id, &signature, &key_secret)?;
@@ -66,7 +66,7 @@ re-serializing changes key order and whitespace, producing a different digest th
 never matches. This is the single most common webhook integration bug.
 
 ```rust
-use razorpay_sdk::resources::WebhookEvent;
+use razorpay_api::resources::WebhookEvent;
 
 // `raw_body` must be the unparsed request body, read as a string first.
 let event = WebhookEvent::parse_verified(&raw_body, &signature_header, &webhook_secret)?;
@@ -122,7 +122,7 @@ manual capture; otherwise Razorpay captures for you.
 Every list endpoint takes `ListOptions` and returns `Collection<T>`:
 
 ```rust
-use razorpay_sdk::ListOptions;
+use razorpay_api::ListOptions;
 
 let page = client.orders().all(ListOptions::new().count(25).skip(50)).await?;
 for order in &page {

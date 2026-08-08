@@ -1,10 +1,10 @@
 [package]
-name = "razorpay-sdk"
-version = "0.1.1"
+name = "razorpay-api"
+version = "0.1.0"
 edition = "2024"
 rust-version = "1.85"
 description = "An async, typed Rust client for the Razorpay payments API"
-documentation = "https://docs.rs/razorpay-sdk"
+documentation = "https://docs.rs/razorpay-api"
 readme = "README.md"
 keywords = ["razorpay", "payments", "api-client", "async", "upi"]
 categories = ["api-bindings", "asynchronous"]

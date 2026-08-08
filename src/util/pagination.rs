@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 /// The common case is "just give me the defaults":
 ///
 /// ```
-/// use razorpay_sdk::ListOptions;
+/// use razorpay_api::ListOptions;
 ///
 /// let opts = ListOptions::default();
 /// assert!(opts.count.is_none());
@@ -24,7 +24,7 @@ use serde::{Deserialize, Serialize};
 /// Or build up a filtered window with the chainable setters:
 ///
 /// ```
-/// use razorpay_sdk::ListOptions;
+/// use razorpay_api::ListOptions;
 ///
 /// let opts = ListOptions::new().count(25).skip(50).from(1_700_000_000);
 /// assert_eq!(opts.count, Some(25));
@@ -87,8 +87,8 @@ impl ListOptions {
 /// # Examples
 ///
 /// ```
-/// # use razorpay_sdk::Collection;
-/// # use razorpay_sdk::resources::Order;
+/// # use razorpay_api::Collection;
+/// # use razorpay_api::resources::Order;
 /// # fn demo(page: Collection<Order>) {
 /// for order in &page {
 ///     println!("{} is {:?}", order.id, order.status);

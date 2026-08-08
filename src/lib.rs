@@ -7,8 +7,8 @@
 //! # Quick start
 //!
 //! ```no_run
-//! use razorpay_sdk::{RazorpayClient, RazorpayError};
-//! use razorpay_sdk::resources::CreateOrderParams;
+//! use razorpay_api::{RazorpayClient, RazorpayError};
+//! use razorpay_api::resources::CreateOrderParams;
 //!
 //! # async fn demo() -> Result<(), RazorpayError> {
 //! // Construct once at startup and share it — the client pools connections.
@@ -41,9 +41,9 @@
 //!    [`WebhookEvent::parse_verified`](resources::webhooks::WebhookEvent::parse_verified).
 //!
 //! ```no_run
-//! use razorpay_sdk::signature::verify_payment_signature;
+//! use razorpay_api::signature::verify_payment_signature;
 //! # fn handle(order_id: &str, payment_id: &str, signature: &str, secret: &str)
-//! # -> Result<(), razorpay_sdk::RazorpayError> {
+//! # -> Result<(), razorpay_api::RazorpayError> {
 //! // These three values arrive from the browser after Checkout completes.
 //! verify_payment_signature(order_id, payment_id, signature, secret)?;
 //! // Only now is it safe to mark the order as paid.

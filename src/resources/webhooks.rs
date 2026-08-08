@@ -178,8 +178,8 @@ impl WebhookEvent {
     /// # Examples
     ///
     /// ```
-    /// use razorpay_sdk::resources::WebhookEvent;
-    /// use razorpay_sdk::signature::compute_signature;
+    /// use razorpay_api::resources::WebhookEvent;
+    /// use razorpay_api::signature::compute_signature;
     ///
     /// let secret = "webhook_secret";
     /// let raw_body = r#"{"event":"payment.captured","payload":{"payment":{"entity":
@@ -195,7 +195,7 @@ impl WebhookEvent {
     ///
     /// // A forged body is rejected before parsing.
     /// assert!(WebhookEvent::parse_verified(raw_body, "00", secret).is_err());
-    /// # Ok::<(), razorpay_sdk::RazorpayError>(())
+    /// # Ok::<(), razorpay_api::RazorpayError>(())
     /// ```
     pub fn parse_verified(
         raw_body: &str,
