@@ -1,0 +1,36 @@
+[package]
+name = "razorpay-sdk"
+version = "0.1.1"
+edition = "2024"
+rust-version = "1.85"
+description = "An async, typed Rust client for the Razorpay payments API"
+documentation = "https://docs.rs/razorpay-sdk"
+readme = "README.md"
+keywords = ["razorpay", "payments", "api-client", "async", "upi"]
+categories = ["api-bindings", "asynchronous"]
+license = "MIT OR Apache-2.0"
+exclude = ["PLAN.md", "razorpay-rust-sdk-plan.md", "/.github"]
+
+[features]
+# Exposes the internal request wrappers for integration tests. Not for downstream use.
+test-util = []
+
+[package.metadata.docs.rs]
+# Document the test-util surface too, so docs.rs matches a full local build.
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.151"
+reqwest = { version = "0.13.4", default-features = false, features = ["json", "query", "http2", "rustls"] }
+thiserror = "2.0.20"
+hmac = "0.13.0"
+sha2 = "0.11.0"
+subtle = "2.6.1"
+hex = "0.4.3"
+
+[dev-dependencies]
+serde_urlencoded = "0.7.1"
+tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros"] }
+wiremock = "0.6.1"
