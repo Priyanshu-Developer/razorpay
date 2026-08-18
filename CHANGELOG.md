@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `demo-ui` feature and `examples/demo_ui.rs`: an [Axum](https://docs.rs/axum) web
+  dashboard covering all 51 operations across every resource, gated behind the
+  feature so it adds no weight to normal builds (`cargo run --example demo_ui
+  --features demo-ui`).
+  - Seeds real test-mode data on load (customer, item, order, plan, subscription,
+    invoice, payment link) and prefills every card that needs one of those ids, so
+    most operations work with a single click instead of requiring an id copied
+    from an earlier response.
+  - A **Live checkout** panel opens Razorpay's actual Checkout popup
+    (`checkout.js`) against the seeded order. On success the resulting
+    `razorpay_payment_id`/`razorpay_signature` are verified server-side via
+    `verify_payment_signature` — never trusted from the browser directly — before
+    the payment cards (fetch, capture, edit, refund, list-refunds) are prefilled
+    with the now-real payment id.
+
 ## [0.1.0] — 2026-08-08
 
 Initial release. Covers the core payment lifecycle and recurring billing.

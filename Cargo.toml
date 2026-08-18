@@ -1,6 +1,6 @@
 [package]
 name = "razorpay-api"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 rust-version = "1.85"
 description = "An async, typed Rust client for the Razorpay payments API"
@@ -14,6 +14,8 @@ exclude = ["PLAN.md", "razorpay-rust-sdk-plan.md", "/.github"]
 [features]
 # Exposes the internal request wrappers for integration tests. Not for downstream use.
 test-util = []
+# Pulls in axum/tokio-full for the `demo_ui` example only; default builds are unaffected.
+demo-ui = ["test-util", "dep:axum", "dep:tokio"]
 
 [package.metadata.docs.rs]
 # Document the test-util surface too, so docs.rs matches a full local build.
@@ -29,8 +31,15 @@ hmac = "0.13.0"
 sha2 = "0.11.0"
 subtle = "2.6.1"
 hex = "0.4.3"
+# Only pulled in by the `demo-ui` feature, for the examples/demo_ui.rs dashboard.
+axum = { version = "0.8.9", optional = true }
+tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros", "net"], optional = true }
 
 [dev-dependencies]
 serde_urlencoded = "0.7.1"
 tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros"] }
 wiremock = "0.6.1"
+
+[[example]]
+name = "demo_ui"
+required-features = ["demo-ui"]

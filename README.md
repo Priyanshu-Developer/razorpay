@@ -188,6 +188,48 @@ cargo run --example handle_webhook     # offline, no keys needed
 cargo run --example subscription
 ```
 
+### Interactive demo dashboard
+
+The `demo-ui` feature adds a small [Axum](https://docs.rs/axum) web dashboard with
+one card per API operation across every resource — orders, payments, refunds,
+customers, cards, items, plans, subscriptions, invoices, and payment links (51
+operations in total). Each card sends the real request through this crate and
+shows the raw JSON response.
+
+```sh
+export RAZORPAY_KEY_ID=rzp_test_...
+export RAZORPAY_KEY_SECRET=...
+
+cargo run --example demo_ui --features demo-ui
+# open http://127.0.0.1:4000
+```
+
+On load, the page seeds real test-mode data — a customer, item, order, plan,
+subscription, invoice, and payment link — and prefills every card that needs one
+of those ids, so most cards work with a single click on "Send" instead of making
+you hunt for an id from an earlier response first. A "Re-seed" button reruns this
+if you want fresh ids.
+
+The page also has a **Live checkout** panel that opens Razorpay's real Checkout
+popup against the seeded order — this is the actual browser flow a real
+integration follows, not a simulation. Pay with the
+[test card](https://razorpay.com/docs/payments/payments/test-card-upi-details/)
+`4111 1111 1111 1111` (any future expiry, any CVV) and Checkout hands back a
+payment id and signature. The page sends both to the server, which verifies the
+signature with this crate's `verify_payment_signature` before trusting anything
+the browser said — the same check a real integration is required to make — and
+only then fetches and displays the payment. Once verified, the payment id
+auto-fills the fetch/capture/edit/refund cards under **Payments**, which until
+then are blank (Razorpay has no server-side "just create a paid payment"
+endpoint, even in test mode, so completing a real Checkout is the only way to get
+one). Card, token, and standalone refund ids still need to be pasted in manually,
+since they come from that same real payment's `card_id` / saved-token / refund
+response rather than anything this page can produce on its own.
+
+It talks to Razorpay's real test-mode API — use test keys, not live ones. The
+feature pulls in `axum` and `tokio`'s full runtime, so it is off by default and
+does not affect normal builds of the crate.
+
 ## Testing
 
 ```sh
